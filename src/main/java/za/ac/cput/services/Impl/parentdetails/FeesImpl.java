@@ -16,15 +16,13 @@ public class FeesImpl implements IFees {
     @Autowired public FeesImpl(IFeesRepository repository){
         this.repository = repository;
     }
-
     @Override
     public Fees save(Fees fees) {
         return this.repository.save(fees);
     }
-
     @Override
-    public Optional<Fees> read(String id) {
-        return this.repository.findById(id);
+    public Optional<Fees> read(String s) {
+        return this.repository.findById(s);
     }
 
     @Override

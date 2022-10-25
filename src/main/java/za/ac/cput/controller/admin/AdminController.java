@@ -1,3 +1,11 @@
+/*
+AdminController.java
+Controller Admin
+Author: Marvin Hope - 219445842
+ */
+
+
+
 package za.ac.cput.controller.admin;
 
 import lombok.extern.slf4j.Slf4j;
@@ -43,7 +51,7 @@ public class AdminController {
 
     @GetMapping("/all")
     public ResponseEntity <List<Admin>> findAll() {
-        List<Admin> admin = this.iAdmin.findAll();
+        List<Admin> admin = this.iAdmin.findall();
         return ResponseEntity.ok(admin);
     }
 }

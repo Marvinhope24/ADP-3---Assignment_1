@@ -1,9 +1,3 @@
-/*
-ISupportStaff.java
-Enable services
-Author: Tiffany Kiwiets (219322732)
-*/
-
 package za.ac.cput.services.Interface.staffdetails;
 
 import za.ac.cput.domain.staffdetails.SupportStaff;

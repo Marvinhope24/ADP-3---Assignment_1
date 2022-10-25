@@ -87,8 +87,6 @@ public class Parent implements Serializable {
 
     //====================================================
     // toString
-
-
     @Override
     public String toString() {
         return "Parent{" +

@@ -1,3 +1,9 @@
+/*
+SportController.java
+Domain Sport
+Author: Marvin Hope - 219445842
+ */
+
 package za.ac.cput.domain.studentdetails;
 
 import com.sun.istack.NotNull;

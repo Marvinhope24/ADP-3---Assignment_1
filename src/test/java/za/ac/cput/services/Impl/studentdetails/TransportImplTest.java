@@ -42,7 +42,7 @@ class TransportImplTest
     {
         List<Transport> transportList = this.service.findAll();
         System.out.println(transportList);
-        assertEquals(1, transportList.size());
+        assertEquals(2, transportList.size());
     }
 
     @Test
@@ -72,7 +72,7 @@ class TransportImplTest
     {
         Transport delete = this.service.save(this.transport);
         List<Transport> transportList = this.service.findAll();
-        assertEquals(1, transportList.size());
+        assertEquals(2, transportList.size());
         System.out.println("Deleted");
         this.service.delete(delete);
     }

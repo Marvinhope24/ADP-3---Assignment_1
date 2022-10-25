@@ -1,21 +1,18 @@
-/* StudentPrestige.java
-    Entity for Student Prestige
-    Author: Kegomoditswe Leshope - 219189048
-    Date: 7 August 2022
-*/
-
 package za.ac.cput.domain.studentdetails;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
-import javax.persistence.*;
-import javax.security.auth.Subject;
+import za.ac.cput.domain.staffdetails.Subject;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
+
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
-
 
 @Entity
 public class StudentPrestige implements Serializable {
@@ -25,25 +22,25 @@ public class StudentPrestige implements Serializable {
     private String prestigeId;
     @NotNull private String prestigeType;
 
-//    @ManyToOne
+    //    @ManyToOne
 //    @JoinColumn(name = "student_id")
-    @ManyToOne(cascade = {PERSIST, MERGE})
+    @ManyToOne
     @NotFound(action = NotFoundAction.IGNORE)
     private Student student;
 
-//    @ManyToOne
+    //    @ManyToOne
 //    @JoinColumn (name = "sport_id")
-    @ManyToOne(cascade = {PERSIST, MERGE})
+    @ManyToOne
     @NotFound(action = NotFoundAction.IGNORE)
     private Sport sport;
 
-//    @ManyToOne
+    //    @ManyToOne
 //    @JoinColumn (name = "culture_id")
-    @ManyToOne(cascade = {PERSIST, MERGE})
+    @ManyToOne
     @NotFound(action = NotFoundAction.IGNORE)
     private Culture culture;
 
-//    @ManyToOne(cascade = {PERSIST, MERGE})
+    @ManyToOne
     @NotFound(action = NotFoundAction.IGNORE)
     private Subject subject;
 
@@ -101,8 +98,6 @@ public class StudentPrestige implements Serializable {
     }
 
     //toString====
-
-
     @Override
     public String toString() {
         return "StudentPrestige{" +
@@ -125,8 +120,8 @@ public class StudentPrestige implements Serializable {
         private Subject subject;
 
         public Builder prestigeId(String prestigeId){
-        this.prestigeId = prestigeId;
-        return this;
+            this.prestigeId = prestigeId;
+            return this;
         }
 
         public Builder prestigeType(String prestigeType){

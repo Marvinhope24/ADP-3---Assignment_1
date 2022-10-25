@@ -1,3 +1,7 @@
+/* AdminImplTest.java
+Testing for AdminImpl
+Author: Marvin Peter Hope (219445842)
+*/
 package za.ac.cput.services.Impl.admin;
 
 import org.junit.jupiter.api.*;

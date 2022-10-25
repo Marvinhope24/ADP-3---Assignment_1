@@ -7,14 +7,13 @@ package za.ac.cput.domain.admin;
 
 import com.sun.istack.NotNull;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
-
 @Entity
 public class Admin implements Serializable {
-
     @NotNull
     @Id
     private String adminID;
@@ -62,16 +61,16 @@ public class Admin implements Serializable {
         private String adminID;
         private String bankingID;
 
-        public Builder setAdminID(String adminID) {
+        public Admin.Builder setAdminID(String adminID) {
             this.adminID = adminID;
             return this;
         }
 
-        public Builder setBankingID(String bankingID) {
+        public Admin.Builder setBankingID(String bankingID) {
             this.bankingID = bankingID;
             return this;
         }
-        public Builder copy( Admin  admin){
+        public Builder copy(Admin  admin){
             this.adminID = admin.adminID;
             this.bankingID = admin.bankingID;
             return this;
@@ -81,5 +80,4 @@ public class Admin implements Serializable {
             return new Admin(this);
         }
     }
-
 }
