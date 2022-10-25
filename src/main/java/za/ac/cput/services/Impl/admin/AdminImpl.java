@@ -1,3 +1,10 @@
+/*
+AdminImpl.java
+Factory AdminImpl
+Author: Marvin Hope - 219445842
+ */
+
+
 package za.ac.cput.services.Impl.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,29 +24,20 @@ public class AdminImpl implements IAdmin {
     public AdminImpl(IAdminRepository repository) {
         this.repository = repository;
     }
-
-    @Override
-    public List<Admin> findall() {
-        return this.repository.findAll();
-    }
-
-    @Override
-    public List<Admin> findAll() {
-        return this.repository.findAll();
-    }
-
     @Override
     public Admin save(Admin admin) {
         return this.repository.save(admin);
     }
-
     @Override
     public Optional<Admin> read(String s) {
         return this.repository.findById(s);
     }
-
     @Override
     public void delete(Admin admin) {
         this.repository.findAll();
+    }
+    @Override
+    public List<Admin> findall() {
+        return this.repository.findAll();
     }
 }

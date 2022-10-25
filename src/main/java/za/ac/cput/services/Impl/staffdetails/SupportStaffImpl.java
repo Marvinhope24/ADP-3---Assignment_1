@@ -1,9 +1,3 @@
-/*
-SupportStaff.java
-Enable services
-Author: Tiffany Kiwiets (219322732)
-*/
-
 package za.ac.cput.services.Impl.staffdetails;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +10,29 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class SupportStaffImpl implements ISupportStaff {
+    @Autowired
     private final ISupportStaffRepository repository;
-
-    @Autowired public SupportStaffImpl(ISupportStaffRepository repository) { this.repository = repository; }
+    @Autowired
+    public SupportStaffImpl(ISupportStaffRepository repository) {
+        this.repository = repository;
+    }
+    @Override
+    public SupportStaff save(SupportStaff supportStaff) {
+        return this.repository.save(supportStaff);
+    }
 
     @Override
-    public List<SupportStaff> findall() { return this.repository.findAll(); }
+    public Optional<SupportStaff> read(String s) {
+        return this.repository.findById(s);
+    }
 
     @Override
-    public SupportStaff save(SupportStaff supportStaff) { return this.repository.save(supportStaff); }
+    public void delete(SupportStaff supportStaff) {
+        this.repository.delete(supportStaff);
+    }
 
     @Override
-    public Optional<SupportStaff> read(String s) { return this.repository.findById(s); }
-
-    @Override
-    public void delete(SupportStaff supportStaff) { this.repository.delete(supportStaff); }
+    public List<SupportStaff> findall() {
+        return this.repository.findAll();
+    }
 }

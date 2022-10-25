@@ -22,13 +22,13 @@ class SupportStaffFactoryTest {
 
         SupportStaff supportStaff = SupportStaffFactory.build(
                 "635941258",
+                admin,
                 "Julius",
                 "Jacob",
                 "08569112567",
                 "Allegic to bees",
                 "Degree in sport management",
-                "Head of sports management",
-                admin);
+                "Head of sports management");
         assertNotNull(supportStaff);
         System.out.println(supportStaff);
     }
@@ -42,13 +42,13 @@ class SupportStaffFactoryTest {
         Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> SupportStaffFactory.build(
                         null,
+                        admin,
                         "Julius",
                         "Jacob",
                         "08569112567",
                         "Allegic to bees",
                         "Degree in sport management",
-                        "Head of sports management",
-                        admin));
+                        "Head of sports management"));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
         assertSame("ID is required!", exceptionMessage);

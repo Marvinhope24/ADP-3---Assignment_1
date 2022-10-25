@@ -1,7 +1,7 @@
-//Siyabonga Tumelo Masango
-//219200815
-//31/03/2022
-//sportFactory.java
+/* SportFactoryTest.java
+Testing for SportFactoryTest
+Author: Marvin Peter Hope (219445842)
+*/
 package za.ac.cput.factory.studentdetails;
 
 import org.junit.jupiter.api.Test;

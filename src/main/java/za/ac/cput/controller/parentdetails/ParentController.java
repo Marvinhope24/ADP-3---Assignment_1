@@ -1,3 +1,10 @@
+/*
+ParentController.java
+Controller Parent
+Author: Marvin Hope - 219445842
+ */
+
+
 package za.ac.cput.controller.parentdetails;
 
 import lombok.extern.slf4j.Slf4j;

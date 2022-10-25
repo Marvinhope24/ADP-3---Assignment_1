@@ -53,7 +53,7 @@ class CultureImplTest {
     void findAll() {
         List<Culture> cultureList = this.service.findAll();
         System.out.println(cultureList);
-        assertEquals(1,cultureList.size());
+        assertEquals(2,cultureList.size());
     }
 
     @Test
@@ -80,7 +80,7 @@ class CultureImplTest {
     void delete() {
         Culture delete = this.service.save(this.culture);
         List<Culture> employeeList = this.service.findAll();
-        assertEquals(1,employeeList.size());
+        assertEquals(2,employeeList.size());
         System.out.println("Deleted! ");
         this.service.delete(delete);
     }

@@ -18,27 +18,29 @@ import java.util.Optional;
 
 @Service
 public class StudentPrestigeImpl implements IStudentPrestige {
-    @Autowired
     private final IStudentPrestigeRepository repository;
 
     @Autowired
     public StudentPrestigeImpl(IStudentPrestigeRepository repository) {
         this.repository = repository;
     }
-
-    public List<StudentPrestige> findAll(){
-        return this.repository.findAll();
-    }
-
-    public StudentPrestige save(StudentPrestige studentPrestige){
+    @Override
+    public StudentPrestige save(StudentPrestige studentPrestige) {
         return this.repository.save(studentPrestige);
     }
 
-    public Optional<StudentPrestige> read(String id){
-        return this.repository.findById(id);
+    @Override
+    public Optional<StudentPrestige> read(String s) {
+        return this.repository.findById(s);
     }
 
-    public void delete(StudentPrestige studentPrestige){
-        this.repository.delete(studentPrestige);
+    @Override
+    public void delete(StudentPrestige studentPrestige) {
+    this.repository.delete(studentPrestige);
+    }
+
+    @Override
+    public List<StudentPrestige> findAll() {
+        return this.repository.findAll();
     }
 }

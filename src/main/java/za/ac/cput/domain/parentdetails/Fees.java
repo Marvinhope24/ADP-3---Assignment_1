@@ -14,9 +14,11 @@ import za.ac.cput.domain.studentdetails.Student;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
@@ -26,14 +28,20 @@ public class Fees implements Serializable {
     @NotNull
     @Id
     private String feeID;
-    @ManyToOne(cascade = {PERSIST, MERGE})
-    @NotFound(action = NotFoundAction.IGNORE)
+//    @ManyToOne
+//    @NotFound(action = NotFoundAction.IGNORE)
+    @ManyToOne
+    @JoinColumn(name = "student_id")
     private Student studentID;
-    @ManyToOne(cascade = {PERSIST, MERGE})
-    @NotFound(action = NotFoundAction.IGNORE)
+//    @ManyToOne
+//    @NotFound(action = NotFoundAction.IGNORE)
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
     private Admin adminID;
-    @ManyToOne(cascade = {PERSIST, MERGE})
-    @NotFound(action = NotFoundAction.IGNORE)
+//    @ManyToOne
+//    @NotFound(action = NotFoundAction.IGNORE)
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
     private Parent parentID;
     @NotNull
     private double amount;
@@ -66,12 +74,20 @@ public class Fees implements Serializable {
     public Parent getParentID() {
         return parentID;
     }
-
     public double getAmount() {
         return amount;
     }
-
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fees fees = (Fees) o;
+        return Double.compare(fees.amount, amount) == 0 && feeID.equals(fees.feeID) && studentID.equals(fees.studentID) && adminID.equals(fees.adminID) && parentID.equals(fees.parentID);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(feeID, studentID, adminID, parentID, amount);
+    }
 
     @Override
     public String toString() {
@@ -116,13 +132,12 @@ public class Fees implements Serializable {
             return this;
         }
 
-
         public Builder copy(Fees fees) {
-            this.feeID = fees.getFeeID();
-            this.studentID = fees.getStudentID();
-            this.admin = fees.getAdminID();
-            this.parentID = fees.getParentID();
-            this.amount = fees.getAmount();
+            this.feeID = fees.feeID;
+            this.studentID = fees.studentID;
+            this.admin = fees.adminID;
+            this.parentID = fees.parentID;
+            this.amount = fees.amount;
             return this;
         }
 

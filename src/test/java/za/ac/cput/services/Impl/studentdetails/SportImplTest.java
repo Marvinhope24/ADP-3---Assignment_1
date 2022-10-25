@@ -1,3 +1,8 @@
+/* SportImplTest.java
+Testing for SportIMpl
+Author: Marvin Peter Hope (219445842)
+*/
+
 package za.ac.cput.services.Impl.studentdetails;
 
 import org.junit.jupiter.api.*;
@@ -68,7 +73,7 @@ class SportImplTest {
     void findAll() {
         List<Sport> sportList = this.service.findAll();
         System.out.println(sportList);
-        assertEquals(1,sportList.size());
+        assertEquals(2,sportList.size());
     }
     @Test
     @Order(2)
@@ -94,7 +99,7 @@ class SportImplTest {
     void delete() {
         Sport delete = this.service.save(this.sport);
         List<Sport> sportList = this.service.findAll();
-        assertEquals(1,sportList.size());
+        assertEquals(2,sportList.size());
         System.out.println("Deleted!");
         this.service.delete(delete);
     }

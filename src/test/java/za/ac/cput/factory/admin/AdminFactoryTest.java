@@ -1,3 +1,9 @@
+/*
+AdminFactory.java
+Test AdminFactory
+Author: Marvin Hope - 219445842
+ */
+
 package za.ac.cput.factory.admin;
 
 import org.junit.jupiter.api.Test;

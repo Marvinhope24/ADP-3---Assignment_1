@@ -1,11 +1,4 @@
-/*
-FeesController.java
-Controller for Fees
-Author: Tiffany Kiwiets (219322732)
- */
-
 package za.ac.cput.controller.parentdetails;
-
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +9,6 @@ import za.ac.cput.services.Interface.parentdetails.IFees;
 
 import javax.validation.Valid;
 import java.util.List;
-
 @RestController
 @RequestMapping("/abc-school-management/fees")
 @Slf4j
@@ -31,19 +23,19 @@ public class FeesController {
     @PostMapping("/save")
     public ResponseEntity<Fees> save(@Valid @RequestBody Fees fees) {
         log.info("Save request: {}", fees);
-        System.out.printf("Save request: %n",fees);
+        System.out.println(String.format("Save request: &s", fees));
         Fees save = iFeesService.save(fees);
         return ResponseEntity.ok(save);
     }
 
-    @GetMapping("read/{feeID}")
-    public ResponseEntity<Fees> read(@PathVariable String feeID) {
-        log.info("Read Request: {}", feeID);
-        Fees read = this.iFeesService.read(feeID).get();
+    @GetMapping("read/{feesID}")
+    public ResponseEntity<Fees> read(@PathVariable String feesID) {
+        log.info("Read Request: {}", feesID);
+        Fees read = this.iFeesService.read(feesID).get();
         return ResponseEntity.ok(read);
     }
 
-    @DeleteMapping ("delete/{feeID}")
+    @DeleteMapping("delete/{feeID}")
     public ResponseEntity<Void> delete(@PathVariable String feeID) {
         log.info("Delete request {}", feeID);
         return ResponseEntity.noContent().build();
